@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "outDir": "es6",
+    "module": "es6",
+    "target": "es6",
+    "strictNullChecks": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "sourceMap": true,
+    "jsx": "preserve"
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "examples",
+    "typings/globals",
+    "typings/modules",
+    "typings/index.d.ts"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true,
+    "useCache": true,
+    "forkChecker": true
+  }
+}

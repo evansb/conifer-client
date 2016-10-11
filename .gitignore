@@ -1,0 +1,7 @@
+.awcache
+*.log
+node_modules
+typings
+dist
+es5
+es6
