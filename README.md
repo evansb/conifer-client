@@ -1,5 +1,6 @@
 Conifer Web Client
 ================
+[![Build Status](https://travis-ci.org/evansb/conifer-client.svg?branch=master)](https://travis-ci.org/evansb/conifer-client)
 
 This repository houses the client app used by Conifer.
 
