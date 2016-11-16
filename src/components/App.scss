@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Cabin:300,500,700');
 @import '~flexboxgrid';
 @import "~@blueprintjs/core/dist/variables";
 @import "~@blueprintjs/core/dist/blueprint.css";
@@ -17,7 +16,6 @@
   width: 100%;
   height: 100%;
   position: relative;
-  font-family: 'Cabin', sans-serif;
   background: $light-gray5;
 
   .ss-main-container {

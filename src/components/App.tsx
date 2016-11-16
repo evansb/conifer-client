@@ -6,6 +6,7 @@ import { Store } from '../store/Store'
 import { Navbar } from '../components/navbar/Navbar'
 import { DirectoryTree } from '../components/directory-tree/DirectoryTree'
 import { UserList } from '../components/user-list/UserList'
+import { LayoutManager } from '../components/layout-manager/LayoutManager'
 import './App.scss'
 
 export interface AppProps {
@@ -53,6 +54,7 @@ export class App extends React.Component<AppProps, void> {
           { this.isSidebarToggled && this.sidebar }
           <div className='ss-main-container' style={this.mainStyle}>
             <Navbar store={this.props.store} />
+            <LayoutManager store={this.props.store.layout} />
           </div>
         </div>
         { __DEV__ && <DevTools position={devToolsPosition} /> }

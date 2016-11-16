@@ -51,7 +51,6 @@ export const Navbar = observer(
               <Button iconName='social-media'>
                 Share
               </Button>
-              <Button iconName='dollar'>Donate</Button>
             </div>
           </div>
         </div>
