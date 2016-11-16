@@ -2,7 +2,7 @@ import * as React from 'react'
 import { CollapsibleTitle } from '../common/CollapsibleTitle'
 
 @CollapsibleTitle({ title: 'Participants', icon: 'user' })
-export class UserList extends React.Component<{}, void> {
+export class UserList extends React.Component<{}, any> {
   render () {
     return (
       <div className='ss-user-list'>

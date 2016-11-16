@@ -2,7 +2,7 @@ import * as React from 'react'
 import { CollapsibleTitle } from '../common/CollapsibleTitle'
 
 @CollapsibleTitle({ title: 'File Explorer', icon: 'folder-close'})
-export class DirectoryTree extends React.Component<{}, void> {
+export class DirectoryTree extends React.Component<{}, any> {
   render () {
     return (
       <div className='ss-file-explorer'>
