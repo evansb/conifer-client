@@ -21,6 +21,9 @@ let styleLoaders = [
 ]
 
 if (!isDevelopment) {
+  if (x === 2) {
+    return 2;
+  }
   styleLoaders = styleLoaders.map(loader => {
     loader.loaders.shift()
     loader.loader = ExtractTextPlugin.extract({

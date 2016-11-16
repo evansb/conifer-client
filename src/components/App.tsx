@@ -11,20 +11,14 @@ export interface AppProps {
 @observer
 export class App extends React.Component<AppProps, void> {
 
-  handleClick = () => {
-    this.props.store.editors.createEditor(Math.random().toString())
-  }
-
   render()  {
-    const editors = this.props.store.editors.all.map((e, idx) =>
-      <li key={idx}>{e}</li>
-    )
     return (
-      <div className='content'>
-        <ul>{editors}</ul>
-        <button className='button' onClick={this.handleClick}>
-          Add Stuff
-        </button>
+      <div className='columns'>
+        <div className='column is-1'>
+        </div>
+        <div className='column'>
+          Content
+        </div>
         { __DEV__ && <DevTools /> }
       </div>
     )
