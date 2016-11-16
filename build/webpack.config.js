@@ -21,9 +21,6 @@ let styleLoaders = [
 ]
 
 if (!isDevelopment) {
-  if (x === 2) {
-    return 2;
-  }
   styleLoaders = styleLoaders.map(loader => {
     loader.loaders.shift()
     loader.loader = ExtractTextPlugin.extract({
@@ -33,7 +30,6 @@ if (!isDevelopment) {
     delete loader.loaders
     return loader
   })
-
 }
 
 const baseConfig = {
@@ -56,6 +52,10 @@ const baseConfig = {
         exclude: /node_modules/,
         loader: 'awesome-typescript-loader'
       },
+      {
+        test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
+        loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
+      },
       { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel' },
       { test: /\.json$/, loader: 'json' }
     ].concat(styleLoaders)
@@ -74,6 +74,15 @@ const baseConfig = {
       hash: false,
       filename: 'index.html',
       inject: 'body'
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        sassLoader: {
+          includePaths: [
+            path.resolve(__dirname, '../node_modules')
+          ]
+        }
+      }
     }),
     new webpack.optimize.OccurrenceOrderPlugin()
   ]
