@@ -45,6 +45,8 @@ export const Navbar = observer(function Navbar({ store }: INavbarProps) {
         </div>
         <div className='col-xs-8 right'>
           <div className='pt-button-group pt-minimal'>
+            <Button intent={Intent.SUCCESS}
+                    iconName='new-object'>Create</Button>
             <Button iconName='fork'>Fork</Button>
             <Button iconName='social-media'>
               Share
