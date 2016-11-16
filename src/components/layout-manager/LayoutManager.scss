@@ -8,7 +8,8 @@
   right: 0px;
 
   .tab-group-container {
-    position: relative
+    position: relative;
+    padding: 0;
   }
 
   .tab-group {
@@ -38,7 +39,6 @@
       bottom: 0px;
       right: 0px;
       height: 100%;
-      border-right: 5px solid black;
     }
   }
   .tabs {

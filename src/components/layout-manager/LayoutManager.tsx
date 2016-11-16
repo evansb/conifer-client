@@ -16,25 +16,28 @@ export interface ITabGroupProps {
 
 function TabGroup({ store, index }: ITabGroupProps) {
   const multiplier = store.tabGroups.length
-  const classNames = classnames('col-xs-' + (12 / multiplier), 'tab-group')
+  const classNames = classnames('col-xs-' + (12 / multiplier),
+    'tab-group-container')
   return (
     <div className={classNames}>
-      <div className='tab-list'>
-        <div className='icons'>
-          { (index !== 0) && (<Button
-              onClick={() => store.unsplitGroup(index)}
-              iconName='one-column'
+      <div className='tab-group'>
+        <div className='tab-list'>
+          <div className='icons'>
+            { (index !== 0) && (<Button
+                onClick={() => store.unsplitGroup(index)}
+                iconName='one-column'
+                className='pt-minimal'>
+            </Button>) }
+            <Button
+              disabled={multiplier >= 3}
+              onClick={() => store.splitGroup(index)}
+              iconName='two-columns'
               className='pt-minimal'>
-          </Button>) }
-          <Button
-            disabled={multiplier >= 3}
-            onClick={() => store.splitGroup(index)}
-            iconName='two-columns'
-            className='pt-minimal'>
-          </Button>
+            </Button>
+          </div>
         </div>
+        <div className='tab-content'></div>
       </div>
-      <div className='tab-content'></div>
     </div>
   )
 }
@@ -42,11 +45,9 @@ function TabGroup({ store, index }: ITabGroupProps) {
 export const LayoutManager = observer(
   function LayoutManager({ store }: ILayoutManagerProps) {
     return (
-      <div className='ss-layout-manager pt-dark'>
-        <div className='tab-group-container row'>
+      <div className='ss-layout-manager pt-dark row'>
         { store.tabGroups.map((tg, idx) =>
             <TabGroup key={idx} index={idx} store={store} />) }
-        </div>
       </div>
     )
   }
