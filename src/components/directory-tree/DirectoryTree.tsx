@@ -1,13 +1,15 @@
 import * as React from 'react'
-import { CollapsibleTitle } from '../common/CollapsibleTitle'
+import { SidebarPane } from '../common/SidebarPane'
+import './DirectoryTree.scss'
 
-@CollapsibleTitle({ title: 'File Explorer', icon: 'folder-close'})
 export class DirectoryTree extends React.Component<{}, any> {
   render () {
     return (
-      <div className='ss-file-explorer'>
-        <h2>File Explorer</h2>
-      </div>
+      <SidebarPane title='File Explorer' icon='folder-close'>
+        <div className='ss-directory-tree'>
+          <h2>File Explorer</h2>
+        </div>
+      </SidebarPane>
     )
   }
 }

@@ -15,28 +15,25 @@ export interface AppProps {
 @observer
 export class App extends React.Component<AppProps, void> {
 
-  @computed get mainStyle () {
-    return {
-      left: this.props.store.config.current.layout.left.width
-    }
+  @computed get leftStyle () {
+    return { width: this.props.store.config.current.layout.left.width }
   }
 
-  @computed get leftStyle () {
-    return {
-      width: this.props.store.config.current.layout.left.width
-    }
+  @computed get mainStyle () {
+    return { left: this.props.store.config.current.layout.left.width }
   }
 
   render()  {
     return (
       <div className='ss-app'>
+        <Navbar store={this.props.store}/>
         <div className='row'>
           <div className='ss-left-container' style={this.leftStyle}>
              <DirectoryTree />
              <UserList />
+             <div className='ss-resizer'></div>
           </div>
           <div className='ss-main-container' style={this.mainStyle}>
-            <Navbar store={this.props.store}/>
             <h2>Main Content</h2>
           </div>
         </div>

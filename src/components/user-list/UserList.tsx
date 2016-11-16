@@ -1,13 +1,14 @@
 import * as React from 'react'
-import { CollapsibleTitle } from '../common/CollapsibleTitle'
+import { SidebarPane } from '../common/SidebarPane'
 
-@CollapsibleTitle({ title: 'Participants', icon: 'user' })
 export class UserList extends React.Component<{}, any> {
   render () {
     return (
-      <div className='ss-user-list'>
-        <h2>User List</h2>
-      </div>
+      <SidebarPane title='Participants' icon='user'>
+        <div className='ss-user-list'>
+          <h2>User List</h2>
+        </div>
+      </SidebarPane>
     )
   }
 }
