@@ -1,13 +1,18 @@
-import { Store } from './Store'
+import { Store, IStoreState } from './Store'
 import { EditorStore } from './EditorStore'
-import { ApplicationConfig,
-  ApplicationConfigStore } from './ApplicationConfigStore'
+import { FileStore } from './FileStore'
+import { ApplicationConfigStore } from './ApplicationConfigStore'
 
-export function createStore(id: string, overrides?: ApplicationConfig): Store {
+export function createStore(id: string, initialData?: IStoreState): Store {
   const store = new Store(id)
 
   store.editors = new EditorStore(store)
-  store.config = new ApplicationConfigStore(store, overrides)
+
+  const initialConfig = initialData ? (initialData.config || {}) : undefined
+  store.config = new ApplicationConfigStore(store, initialConfig)
+
+  const fileData = initialData ? (initialData.files || {}) : undefined
+  store.files = new FileStore(store, fileData)
 
   if (module.hot) {
     module.hot.dispose((data) => {

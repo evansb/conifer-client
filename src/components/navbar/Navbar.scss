@@ -1,13 +1,24 @@
 @import "~@blueprintjs/core/dist/variables";
 
 .ss-navbar {
-  height: 30px;
   background: black;
   width: 100%;
-  padding: 5px;
+  padding: 3px;
+  height: 35px;
 
   .ss-brand {
     font-weight: bolder;
     color: $light-gray4;
+    margin-left: 10px;
+  }
+
+  .right {
+    button {
+      color: $light-gray3;
+    }
+    button :hover {
+      color: $light-gray4;
+    }
+    text-align: right;
   }
 }

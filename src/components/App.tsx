@@ -20,24 +20,42 @@ export class App extends React.Component<AppProps, void> {
   }
 
   @computed get mainStyle () {
-    return { left: this.props.store.config.current.layout.left.width }
+    return {
+      left: this.isSidebarToggled
+        ? this.props.store.config.current.layout.left.width
+        : 0
+    }
+  }
+
+  @computed get isSidebarToggled () {
+    return this.props.store.config.current.layout.left.active
+  }
+
+  get sidebar() {
+    return (
+      <div className='ss-left-container' style={this.leftStyle}>
+        <DirectoryTree
+          root={this.props.store.files.root}
+          store={this.props.store.files}/>
+        <UserList />
+      </div>
+    )
   }
 
   render()  {
+    const devToolsPosition = {
+      bottom: 0,
+      right: 20
+    }
     return (
       <div className='ss-app'>
-        <Navbar store={this.props.store}/>
         <div className='row'>
-          <div className='ss-left-container' style={this.leftStyle}>
-             <DirectoryTree />
-             <UserList />
-             <div className='ss-resizer'></div>
-          </div>
+          { this.isSidebarToggled && this.sidebar }
           <div className='ss-main-container' style={this.mainStyle}>
-            <h2>Main Content</h2>
+            <Navbar store={this.props.store} />
           </div>
         </div>
-        { __DEV__ && <DevTools /> }
+        { __DEV__ && <DevTools position={devToolsPosition} /> }
       </div>
     )
   }

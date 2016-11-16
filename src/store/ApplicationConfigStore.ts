@@ -8,26 +8,26 @@ export interface ApplicationConfig {
   version: string,
   layout: {
     left: {
+      active: boolean,
       width: number
     }
   }
 }
 
 export class ApplicationConfigStore extends AbstractStore<ApplicationConfig> {
-  name = 'editor'
+  name = 'config'
 
-  @observable private config: ApplicationConfig
+  @observable private config: ApplicationConfig = defaultConfig
 
   constructor (parent: AbstractStore<any>, overrides?: ApplicationConfig) {
     super(parent)
-    this.config = defaultConfig
     if (overrides) {
       extendObservable(this.config, overrides)
     }
   }
 
   get current(): ApplicationConfig {
-    return toJS(this.config)
+    return this.config
   }
 
   deserialize(config: ApplicationConfig) {

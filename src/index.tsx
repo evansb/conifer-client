@@ -8,9 +8,9 @@ import { render } from 'react-dom'
 import { createStore } from './store'
 import { App } from './components/App'
 
-export function create(container: HTMLElement) {
+export function create(container: HTMLElement, initialData?: any) {
   const storeID = window.location.host + '/' + window.location.pathname
-  const initialStore = createStore(storeID)
+  const initialStore = createStore(storeID, initialData)
   const storeInstance = observable(asReference(initialStore))
 
   const wrap = (App) =>

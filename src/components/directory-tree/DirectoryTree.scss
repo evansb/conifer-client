@@ -1,4 +1,21 @@
+@import "~@blueprintjs/core/dist/variables";
 
 .ss-directory-tree {
-  min-height: 300px;
+  width: 100%;
+  min-height: 400px;
+  font-size: 0.95em;
+
+  .pt-tree-node {
+    cursor: pointer;
+  }
+
+  .pt-tree-node-icon {
+    color: $gray2 !important;
+  }
+
+  .pt-tree-node-selected {
+    .pt-tree-node-icon {
+      color: $light-gray2 !important;
+    }
+  }
 }

@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "layout": {
     "left": {
+      "active": true,
       "minWidth": 200,
+      "maxWidth": 600,
       "width": 300
     }
   }
