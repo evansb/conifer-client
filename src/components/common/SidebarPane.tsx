@@ -4,7 +4,7 @@ import './SidebarPane.scss'
 
 export interface ISidebarPaneProps {
   title: string
-  icon: string
+  icons: React.ReactElement<any>
 }
 
 export class SidebarPane extends React.Component<ISidebarPaneProps, void> {
@@ -12,12 +12,11 @@ export class SidebarPane extends React.Component<ISidebarPaneProps, void> {
     return (
       <div className='ss-sidebar-pane'>
         <div className='row title pt-light'>
-          <div className='col-xs-1'>
-            <Button iconName={this.props.icon} className='pt-minimal'>
-            </Button>
-          </div>
-          <div className='col-xs-10 header'>
+          <div className='col-xs-6 header'>
             { this.props.title }
+          </div>
+          <div className='col-xs-6 icons'>
+            { this.props.icons }
           </div>
         </div>
         <div className='row content'>
