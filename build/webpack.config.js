@@ -32,6 +32,9 @@ if (!isDevelopment) {
   })
 }
 
+const bourbonPath = path.resolve(__dirname,
+  '../node_modules/bourbon/app/assets/stylesheets/bourbon')
+
 const baseConfig = {
   name: 'conifer',
   entry: {
@@ -57,7 +60,7 @@ const baseConfig = {
         loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
       },
       { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.json$/, loader: 'json' }
+      { test: /\.json$/, loader: 'json-loader' }
     ].concat(styleLoaders)
   },
   plugins: [
@@ -79,7 +82,8 @@ const baseConfig = {
       options: {
         sassLoader: {
           includePaths: [
-            path.resolve(__dirname, '../node_modules')
+            path.resolve(__dirname, '../node_modules'),
+            path.resolve(__dirname, '../node_modules/@blueprintjs/core/src')
           ]
         }
       }

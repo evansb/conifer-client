@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,500,700');
+@import '~flexboxgrid';
+@import "~@blueprintjs/core/dist/variables";
+@import "~@blueprintjs/core/dist/blueprint.css";
+
+.pt-navbar {
+  height: 45px;
+}
+
+.ss-light-heading {
+  font-weight: 500;
+  font-size: 0.9em;
+  color: $pt-text-color-muted;
+}
+
+.ss-app {
+  font-family: 'Source Sans Pro', sans-serif;
+  position: relative;
+
+  .ss-main-container {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+}

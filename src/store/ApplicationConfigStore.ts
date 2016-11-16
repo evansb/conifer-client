@@ -5,7 +5,12 @@ const defaultConfig = require('./DefaultConfig.json')
 
 export interface ApplicationConfig {
   name: string,
-  version: string
+  version: string,
+  layout: {
+    left: {
+      width: number
+    }
+  }
 }
 
 export class ApplicationConfigStore extends AbstractStore<ApplicationConfig> {
@@ -21,7 +26,7 @@ export class ApplicationConfigStore extends AbstractStore<ApplicationConfig> {
     }
   }
 
-  current () {
+  get current(): ApplicationConfig {
     return toJS(this.config)
   }
 
